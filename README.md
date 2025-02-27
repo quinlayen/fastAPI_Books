@@ -33,9 +33,10 @@ The application uses **PostgreSQL** as the database and **SQLAlchemy** as the OR
 ├── frontend/               # Streamlit Frontend
 │   ├── app.py              # Streamlit UI for interacting with FastAPI
 │   ├── streamlit.log       # Streamlit log file
-├── setup_env.sh            # Script to set up virtual environment & dependencies
-├── start_app.sh            # Script to start backend and frontend
+├── setup.sh                # Script to set up virtual environment & dependencies
+├── run.sh                  # Script to start backend and frontend
 ├── README.md               # Project documentation
+├── requirements.txt        # Project dependencies
 ```
 
 ---
@@ -50,8 +51,8 @@ cd book-management-app
 
 ### 2️⃣ Set Up the Virtual Environment
 ```bash
-chmod +x setup_env.sh
-./setup_env.sh
+chmod +x setup.sh
+./setup.sh
 ```
 
 ### 3️⃣ Configure the Database
@@ -67,8 +68,8 @@ chmod +x setup_env.sh
 ## ▶ Running the Application
 ### 1️⃣ Start Backend and Frontend
 ```bash
-chmod +x start_app.sh
-./start_app.sh
+chmod +x run.sh
+./run.sh
 ```
 
 ### 2️⃣ Access the Application
