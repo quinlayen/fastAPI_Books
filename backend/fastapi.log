@@ -1,0 +1,388 @@
+INFO:     Will watch for changes in these directories: ['/Users/peterfaso/Programming/Python/fastapi/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [13993] using StatReload
+/Users/peterfaso/Programming/Python/fastapi/fastapi_env/lib/python3.12/site-packages/pydantic/_internal/_config.py:345: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+* 'schema_extra' has been renamed to 'json_schema_extra'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [13996]
+INFO:     Waiting for application startup.
+2025-02-27 12:32:38,836 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+2025-02-27 12:32:38,836 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 12:32:38,837 INFO sqlalchemy.engine.Engine select current_schema()
+2025-02-27 12:32:38,837 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 12:32:38,838 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+2025-02-27 12:32:38,838 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 12:32:38,839 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:32:38,840 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s::VARCHAR, %(param_2)s::VARCHAR, %(param_3)s::VARCHAR, %(param_4)s::VARCHAR, %(param_5)s::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s::VARCHAR
+2025-02-27 12:32:38,841 INFO sqlalchemy.engine.Engine [generated in 0.00007s] {'table_name': 'books', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-27 12:32:38,842 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2025-02-27 12:32:43,491 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:32:43,491 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 12:32:43,491 INFO sqlalchemy.engine.Engine [generated in 0.00007s] {}
+2025-02-27 12:32:43,494 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50856 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 12:34:05,622 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:34:05,624 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 12:34:05,624 INFO sqlalchemy.engine.Engine [cached since 82.13s ago] {}
+2025-02-27 12:34:05,625 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50879 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 12:34:05,634 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:34:05,636 INFO sqlalchemy.engine.Engine INSERT INTO books (title, author, description, rating, published_date) VALUES (%(title)s::VARCHAR, %(author)s::VARCHAR, %(description)s::VARCHAR, %(rating)s::INTEGER, %(published_date)s::INTEGER) RETURNING books.id
+2025-02-27 12:34:05,636 INFO sqlalchemy.engine.Engine [generated in 0.00012s] {'title': 'Book 1', 'author': 'Peter Faso', 'description': 'My first book', 'rating': 5, 'published_date': 2025}
+2025-02-27 12:34:05,640 INFO sqlalchemy.engine.Engine COMMIT
+2025-02-27 12:34:05,641 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:34:05,642 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books 
+WHERE books.id = %(pk_1)s::INTEGER
+2025-02-27 12:34:05,642 INFO sqlalchemy.engine.Engine [generated in 0.00007s] {'pk_1': 1}
+2025-02-27 12:34:05,643 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50880 - "POST /books HTTP/1.1" 201 Created
+2025-02-27 12:39:54,132 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:39:54,132 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 12:39:54,132 INFO sqlalchemy.engine.Engine [cached since 430.5s ago] {}
+2025-02-27 12:39:54,133 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50908 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 12:44:40,061 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:44:40,062 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 12:44:40,062 INFO sqlalchemy.engine.Engine [cached since 716.5s ago] {}
+2025-02-27 12:44:40,063 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50928 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 12:45:07,779 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:45:07,779 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 12:45:07,779 INFO sqlalchemy.engine.Engine [cached since 744.2s ago] {}
+2025-02-27 12:45:07,781 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50931 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 12:45:07,784 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:45:07,785 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books 
+WHERE books.id = %(id_1)s::INTEGER
+2025-02-27 12:45:07,785 INFO sqlalchemy.engine.Engine [generated in 0.00011s] {'id_1': 1}
+2025-02-27 12:45:07,787 INFO sqlalchemy.engine.Engine DELETE FROM books WHERE books.id = %(id)s::INTEGER
+2025-02-27 12:45:07,787 INFO sqlalchemy.engine.Engine [generated in 0.00008s] {'id': 1}
+2025-02-27 12:45:07,789 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:50932 - "DELETE /books/1 HTTP/1.1" 204 No Content
+2025-02-27 12:45:12,369 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 12:45:12,369 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 12:45:12,369 INFO sqlalchemy.engine.Engine [cached since 748.8s ago] {}
+2025-02-27 12:45:12,370 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50939 - "GET /books HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [13996]
+INFO:     Stopping reloader process [13993]
+./run.sh: line 13: uvicorn: command not found
+./run.sh: line 13: uvicorn: command not found
+INFO:     Will watch for changes in these directories: ['/Users/peterfaso/Programming/Python/fastapi/books_application/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [2248] using StatReload
+/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:345: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+* 'schema_extra' has been renamed to 'json_schema_extra'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [2256]
+INFO:     Waiting for application startup.
+2025-02-27 13:56:01,944 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+2025-02-27 13:56:01,944 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 13:56:01,952 INFO sqlalchemy.engine.Engine select current_schema()
+2025-02-27 13:56:01,952 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 13:56:01,954 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+2025-02-27 13:56:01,954 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 13:56:01,962 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 13:56:01,964 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s::VARCHAR, %(param_2)s::VARCHAR, %(param_3)s::VARCHAR, %(param_4)s::VARCHAR, %(param_5)s::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s::VARCHAR
+2025-02-27 13:56:01,964 INFO sqlalchemy.engine.Engine [generated in 0.00011s] {'table_name': 'books', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-27 13:56:01,967 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2025-02-27 13:56:02,445 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 13:56:02,445 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 13:56:02,445 INFO sqlalchemy.engine.Engine [generated in 0.00008s] {}
+2025-02-27 13:56:02,449 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49251 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 13:57:39,738 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 13:57:39,739 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 13:57:39,740 INFO sqlalchemy.engine.Engine [cached since 97.29s ago] {}
+2025-02-27 13:57:39,741 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49264 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 13:57:39,752 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 13:57:39,753 INFO sqlalchemy.engine.Engine INSERT INTO books (title, author, description, rating, published_date) VALUES (%(title)s::VARCHAR, %(author)s::VARCHAR, %(description)s::VARCHAR, %(rating)s::INTEGER, %(published_date)s::INTEGER) RETURNING books.id
+2025-02-27 13:57:39,753 INFO sqlalchemy.engine.Engine [generated in 0.00010s] {'title': 'His First Book', 'author': 'Imad Klailat', 'description': "The man's first book", 'rating': 5, 'published_date': 2004}
+2025-02-27 13:57:39,757 INFO sqlalchemy.engine.Engine COMMIT
+2025-02-27 13:57:39,758 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 13:57:39,759 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books 
+WHERE books.id = %(pk_1)s::INTEGER
+2025-02-27 13:57:39,759 INFO sqlalchemy.engine.Engine [generated in 0.00009s] {'pk_1': 2}
+2025-02-27 13:57:39,760 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49265 - "POST /books HTTP/1.1" 201 Created
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2256]
+Process SpawnProcess-2:
+Traceback (most recent call last):
+  File "/Users/peterfaso/.rye/py/cpython@3.12.8/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/peterfaso/.rye/py/cpython@3.12.8/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+  File "/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/uvicorn/server.py", line 66, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/peterfaso/.rye/py/cpython@3.12.8/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/peterfaso/.rye/py/cpython@3.12.8/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/peterfaso/.rye/py/cpython@3.12.8/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/uvicorn/server.py", line 70, in serve
+    await self._serve(sockets)
+  File "/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/uvicorn/server.py", line 77, in _serve
+    config.load()
+  File "/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/uvicorn/config.py", line 435, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/peterfaso/.rye/py/cpython@3.12.8/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/peterfaso/Programming/Python/fastapi/books_application/backend/main.py", line 17, in <module>
+    class BookModel(Base):
+                    ^^^^
+NameError: name 'Base' is not defined
+WARNING:  StatReload detected changes in 'main.py'. Reloading...
+/Users/peterfaso/Programming/Python/fastapi/books_application/venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:345: UserWarning: Valid config keys have changed in V2:
+* 'orm_mode' has been renamed to 'from_attributes'
+* 'schema_extra' has been renamed to 'json_schema_extra'
+  warnings.warn(message, UserWarning)
+INFO:     Started server process [4099]
+INFO:     Waiting for application startup.
+2025-02-27 14:13:47,829 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+2025-02-27 14:13:47,829 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 14:13:47,829 INFO sqlalchemy.engine.Engine select current_schema()
+2025-02-27 14:13:47,829 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 14:13:47,830 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+2025-02-27 14:13:47,830 INFO sqlalchemy.engine.Engine [raw sql] {}
+2025-02-27 14:13:47,831 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:13:47,832 INFO sqlalchemy.engine.Engine SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s::VARCHAR, %(param_2)s::VARCHAR, %(param_3)s::VARCHAR, %(param_4)s::VARCHAR, %(param_5)s::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s::VARCHAR
+2025-02-27 14:13:47,832 INFO sqlalchemy.engine.Engine [generated in 0.00007s] {'table_name': 'books', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-27 14:13:47,833 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+2025-02-27 14:38:03,831 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:38:03,833 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:38:03,833 INFO sqlalchemy.engine.Engine [generated in 0.00017s] {}
+2025-02-27 14:38:03,834 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49411 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:39:33,392 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:39:33,392 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:39:33,392 INFO sqlalchemy.engine.Engine [cached since 89.56s ago] {}
+2025-02-27 14:39:33,393 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49416 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:39:33,401 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:39:33,403 INFO sqlalchemy.engine.Engine INSERT INTO books (title, author, description, rating, published_date) VALUES (%(title)s::VARCHAR, %(author)s::VARCHAR, %(description)s::VARCHAR, %(rating)s::INTEGER, %(published_date)s::INTEGER) RETURNING books.id
+2025-02-27 14:39:33,403 INFO sqlalchemy.engine.Engine [generated in 0.00024s] {'title': 'My New Book', 'author': 'Peter Faso', 'description': 'the best book ever written', 'rating': 5, 'published_date': 2025}
+2025-02-27 14:39:33,404 INFO sqlalchemy.engine.Engine COMMIT
+2025-02-27 14:39:33,406 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:39:33,406 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books 
+WHERE books.id = %(pk_1)s::INTEGER
+2025-02-27 14:39:33,406 INFO sqlalchemy.engine.Engine [generated in 0.00008s] {'pk_1': 3}
+2025-02-27 14:39:33,407 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49417 - "POST /books HTTP/1.1" 201 Created
+2025-02-27 14:40:54,668 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:40:54,670 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:40:54,670 INFO sqlalchemy.engine.Engine [cached since 170.8s ago] {}
+2025-02-27 14:40:54,671 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49424 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:40:54,682 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:40:54,682 INFO sqlalchemy.engine.Engine INSERT INTO books (title, author, description, rating, published_date) VALUES (%(title)s::VARCHAR, %(author)s::VARCHAR, %(description)s::VARCHAR, %(rating)s::INTEGER, %(published_date)s::INTEGER) RETURNING books.id
+2025-02-27 14:40:54,682 INFO sqlalchemy.engine.Engine [cached since 81.28s ago] {'title': 'ETL or DIE: A Data Engineer’s Guide to Sanity', 'author': 'Peter Faso', 'description': 'ETL best practices with humor and real-life fails.', 'rating': 5, 'published_date': 2020}
+2025-02-27 14:40:54,684 INFO sqlalchemy.engine.Engine COMMIT
+2025-02-27 14:40:54,685 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:40:54,685 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books 
+WHERE books.id = %(pk_1)s::INTEGER
+2025-02-27 14:40:54,685 INFO sqlalchemy.engine.Engine [cached since 81.28s ago] {'pk_1': 4}
+2025-02-27 14:40:54,686 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49425 - "POST /books HTTP/1.1" 201 Created
+2025-02-27 14:41:30,671 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:41:30,671 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:41:30,671 INFO sqlalchemy.engine.Engine [cached since 206.8s ago] {}
+2025-02-27 14:41:30,674 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49430 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:41:30,686 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:41:30,686 INFO sqlalchemy.engine.Engine INSERT INTO books (title, author, description, rating, published_date) VALUES (%(title)s::VARCHAR, %(author)s::VARCHAR, %(description)s::VARCHAR, %(rating)s::INTEGER, %(published_date)s::INTEGER) RETURNING books.id
+2025-02-27 14:41:30,686 INFO sqlalchemy.engine.Engine [cached since 117.3s ago] {'title': 'Kafka, Kubernetes, and Other Things That Keep Me Up at Night', 'author': 'Muhammed', 'description': 'Tales of distributed systems and engineering woes.', 'rating': 5, 'published_date': 2021}
+2025-02-27 14:41:30,687 INFO sqlalchemy.engine.Engine COMMIT
+2025-02-27 14:41:30,688 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:41:30,688 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books 
+WHERE books.id = %(pk_1)s::INTEGER
+2025-02-27 14:41:30,688 INFO sqlalchemy.engine.Engine [cached since 117.3s ago] {'pk_1': 5}
+2025-02-27 14:41:30,689 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49431 - "POST /books HTTP/1.1" 201 Created
+2025-02-27 14:44:26,464 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:44:26,465 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:44:26,465 INFO sqlalchemy.engine.Engine [cached since 382.8s ago] {}
+2025-02-27 14:44:26,467 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49433 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:44:26,476 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:44:26,477 INFO sqlalchemy.engine.Engine INSERT INTO books (title, author, description, rating, published_date) VALUES (%(title)s::VARCHAR, %(author)s::VARCHAR, %(description)s::VARCHAR, %(rating)s::INTEGER, %(published_date)s::INTEGER) RETURNING books.id
+2025-02-27 14:44:26,477 INFO sqlalchemy.engine.Engine [cached since 293.2s ago] {'title': 'Data Pipelines and Pipeline Dreams: A Guide to Scalable Nightmares', 'author': 'Peter Faso', 'description': 'How not to build fragile data pipelines.', 'rating': 1, 'published_date': 2006}
+2025-02-27 14:44:26,478 INFO sqlalchemy.engine.Engine COMMIT
+2025-02-27 14:44:26,478 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:44:26,478 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books 
+WHERE books.id = %(pk_1)s::INTEGER
+2025-02-27 14:44:26,478 INFO sqlalchemy.engine.Engine [cached since 293.2s ago] {'pk_1': 6}
+2025-02-27 14:44:26,479 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49434 - "POST /books HTTP/1.1" 201 Created
+2025-02-27 14:45:27,260 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:45:27,260 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:45:27,260 INFO sqlalchemy.engine.Engine [cached since 443.6s ago] {}
+2025-02-27 14:45:27,261 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49444 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:45:36,648 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:45:36,649 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:45:36,649 INFO sqlalchemy.engine.Engine [cached since 453s ago] {}
+2025-02-27 14:45:36,651 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49446 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:45:38,310 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:45:38,311 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:45:38,311 INFO sqlalchemy.engine.Engine [cached since 454.7s ago] {}
+2025-02-27 14:45:38,314 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49447 - "GET /books HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49448 - "GET /books/filter?book_rating=5 HTTP/1.1" 422 Unprocessable Entity
+2025-02-27 14:45:49,670 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:45:49,670 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:45:49,670 INFO sqlalchemy.engine.Engine [cached since 466s ago] {}
+2025-02-27 14:45:49,671 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49452 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:45:55,471 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:45:55,471 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:45:55,471 INFO sqlalchemy.engine.Engine [cached since 471.8s ago] {}
+2025-02-27 14:45:55,473 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49453 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:45:56,279 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:45:56,279 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:45:56,279 INFO sqlalchemy.engine.Engine [cached since 472.6s ago] {}
+2025-02-27 14:45:56,282 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49454 - "GET /books HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49455 - "GET /books/filter?book_rating=5 HTTP/1.1" 422 Unprocessable Entity
+2025-02-27 14:46:07,822 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:07,823 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:07,823 INFO sqlalchemy.engine.Engine [cached since 484.2s ago] {}
+2025-02-27 14:46:07,825 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49456 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:09,421 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:09,421 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:09,421 INFO sqlalchemy.engine.Engine [cached since 485.8s ago] {}
+2025-02-27 14:46:09,424 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49457 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:09,601 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:09,601 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:09,601 INFO sqlalchemy.engine.Engine [cached since 485.9s ago] {}
+2025-02-27 14:46:09,602 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49458 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:09,822 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:09,823 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:09,823 INFO sqlalchemy.engine.Engine [cached since 486.2s ago] {}
+2025-02-27 14:46:09,825 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49459 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:10,033 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:10,033 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:10,033 INFO sqlalchemy.engine.Engine [cached since 486.4s ago] {}
+2025-02-27 14:46:10,035 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49460 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:10,228 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:10,228 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:10,228 INFO sqlalchemy.engine.Engine [cached since 486.6s ago] {}
+2025-02-27 14:46:10,230 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49461 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:10,422 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:10,422 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:10,422 INFO sqlalchemy.engine.Engine [cached since 486.8s ago] {}
+2025-02-27 14:46:10,424 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49462 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:11,591 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:11,591 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:11,591 INFO sqlalchemy.engine.Engine [cached since 487.9s ago] {}
+2025-02-27 14:46:11,592 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49463 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:12,013 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:12,013 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:12,013 INFO sqlalchemy.engine.Engine [cached since 488.4s ago] {}
+2025-02-27 14:46:12,015 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49464 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:46:15,031 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:46:15,032 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:46:15,032 INFO sqlalchemy.engine.Engine [cached since 491.4s ago] {}
+2025-02-27 14:46:15,036 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49465 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:48:33,436 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:48:33,437 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:48:33,437 INFO sqlalchemy.engine.Engine [cached since 629.8s ago] {}
+2025-02-27 14:48:33,439 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49474 - "GET /books HTTP/1.1" 200 OK
+2025-02-27 14:48:33,504 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-02-27 14:48:33,504 INFO sqlalchemy.engine.Engine SELECT books.id, books.title, books.author, books.description, books.rating, books.published_date 
+FROM books
+2025-02-27 14:48:33,504 INFO sqlalchemy.engine.Engine [cached since 629.8s ago] {}
+2025-02-27 14:48:33,505 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49476 - "GET /books HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49477 - "GET /books/publish?published_date=2006 HTTP/1.1" 422 Unprocessable Entity
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [4099]
+INFO:     Stopping reloader process [2248]
